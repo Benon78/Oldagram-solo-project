@@ -12,12 +12,21 @@ body {
    background: #fff;
   
 }
+
+#header.scrolled{
+    background: #a6c6f5;
+
+}
 main{
     padding: 10px 17px 10px 15px;
+   
 }
 #header{
     padding: 16px 17px 17px 15px;
     height: 67px;
+    position: sticky;
+    top: 0;
+    transition: background .5s ease-in-out;
 }
 
 .header-class{
@@ -30,8 +39,12 @@ main{
     width: 127px;
     top: 16px;
     left: 15px;
-   
+    border-radius: 8px;
+   transition: scale 1s ease-in-out;
 
+}
+.header-class #logo:hover{
+    transform: scale(1.1);
 }
 #my-avatar, .user-avatar{
     width: 34px;
@@ -41,11 +54,15 @@ main{
 }
 #my-avatar{
     border-radius: 50%;
+    transition: transform 1s ease-in-out;
 }
-
+#my-avatar:hover{
+    transform: translateX(-8px);
+}
 .post-content{
     width: 100%;
     margin-bottom: 25px;
+   
 }
 
 

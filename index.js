@@ -70,14 +70,15 @@ const len = posts.length;
         }
 mainContentEl.innerHTML = mainContent;
 
-             
-                    // likeEl.addEventListener('dblclick', ()=>{
-                            
-                    //             for(let i = 0; i < len; i++ ){
-                    //                 posts[i].likes= 1;
-                    //             }
-                            
-                    // })
+             document.addEventListener('scroll', () =>{
+                const headerEl = document.querySelector('header');
+                if(window.scrollY > 0){
+                    headerEl.classList.add('scrolled');
+                }else{
+                    headerEl.classList.remove('scrolled');
+                }
+             })
+                
                 
 
 
