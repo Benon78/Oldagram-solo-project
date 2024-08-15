@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans 3", sans-serif;
+    background:#f0f2f5 ;
+
+}
+#header, main{
+    max-width: 400px;
+   margin:  auto;
+   /* border: 1px solid black; */
+   background: #fff;
+  
+}
+main{
+    padding: 10px 17px 10px 15px;
+}
+#header{
+    padding: 16px 17px 17px 15px;
+    height: 67px;
+}
+
+.header-class{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-class #logo{
+    width: 127px;
+    top: 16px;
+    left: 15px;
+   
+
+}
+#my-avatar, .user-avatar{
+    width: 34px;
+    height: 34px;
+   
+
+}
+#my-avatar{
+    border-radius: 50%;
+}
+
+.post-content{
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+
+.user-info{
+    display: flex;
+    width: 348px;
+    gap: 17px;
+    height: 34px;
+    justify-content: flex-start;
+    align-items:center ;
+    margin-bottom: 11px;
+
+}
+.user-avatar img{
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-discription{
+    width: 100%;
+    font-size: 13px;
+    margin: 0;
+}
+.user-discription p{
+    margin: 0;
+}
+
+.user-discription  .user-full-name{
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.user-discription .user-location{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.post-image{
+    width: 100%;
+    margin-bottom: 21px;
+
+}
+
+.post-image img{
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.post-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.post-footer .post-likes{
+    width: 104.34px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 0 12px 0;
+
+}
+
+.post-footer .post-likes img{
+    width: 22.38px;
+    object-fit: cover;
+    margin-right: 15px;
+    transition: transform 1s;
+}
+.post-likes img:hover{
+    transform: translateY(8px);
+}
+
+
+.post-footer .like-count p{
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.34px;
+    text-align: left;
+    margin: 0;
+}
+
+.user-caption{
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.34px;
+    text-align: left;
+    margin: 0;
+
+}
+
+.user-caption span{
+    font-weight: 400;
+}
+
+
+
+
+
