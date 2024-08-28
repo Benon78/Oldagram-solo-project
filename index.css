@@ -128,14 +128,19 @@ main{
     justify-content: flex-start;
     align-items: flex-start;
     margin: 0 0 12px 0;
+    cursor: pointer;
 
 }
 
 .post-footer .post-likes img{
     width: 22.38px;
+    border-radius: 50%;
     object-fit: cover;
     margin-right: 15px;
     transition: transform 1s;
+}
+.liked{
+    background-color: #ff0000;
 }
 .post-likes img:hover{
     transform: translateY(8px);
