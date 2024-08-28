@@ -1,86 +1,85 @@
-const posts = [
-    {
-        name: "Vincent van Gogh",
-        username: "vincey1853",
-        location: "Zundert, Netherlands",
-        avatar: "images/avatar-vangogh.jpg",
-        post: "images/post-vangogh.jpg",
-        comment: "just took a few mushrooms lol",
-        likes: 21
-    },
-    {
-        name: "Gustave Courbet",
-        username: "gus1819",
-        location: "Ornans, France",
-        avatar: "images/avatar-courbet.jpg",
-        post: "images/post-courbet.jpg",
-        comment: "i'm feelin a bit stressed tbh",
-        likes: 4
-    },
-        {
-        name: "Joseph Ducreux",
-        username: "jd1735",
-        location: "Paris, France",
-        avatar: "images/avatar-ducreux.jpg",
-        post: "images/post-ducreux.jpg",
-        comment: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
-        likes: 152
-    }
-]
-
+import { posts} from './data.js'
 const mainContentEl = document.getElementById('main-content');
-const likeEl = document.getElementById('like-count');
-let mainContent = '';
-const len = posts.length;
-        for(let i = 0; i < len; i++ ){
-            let count = posts[i].likes;
-            
 
+// Call the function to generate HTML
+function getHtml(){
+    let mainContent = '';
+       posts.forEach(function(post){
+
+            if(post.isLiked){
+                var likeIconclass = 'liked';
+            }
+       
             mainContent += `
             <section class="post-content">
                         <div class="user-info">
                             <div class="user-avatar">
-                                <img src="${posts[i].avatar}" alt="image of avatar-vangogh">
+                                <img src="${post.avatar}" alt="image of avatar-vangogh">
                             </div>
                             <div class="user-discription">
-                                <p class="user-full-name">${posts[i].name}</p>
-                                <p class="user-location">${posts[i].location}</p>
+                                <p class="user-full-name">${post.name}</p>
+                                <p class="user-location">${post.location}</p>
                             </div>
                         </div>
                         <div class="post-image">
-                            <img src="${posts[i].post}" alt="image of post drawing vangogh">
+                            <img src="${post.post}" alt="image of post drawing vangogh">
                         </div>
                         <div class="post-footer">
                             <div class="post-likes">
-                                <img src="images/icon-heart.png" alt="icon of heart" id="like-count">
+                                <img src="images/icon-heart.png" class="${likeIconclass}" alt="icon of heart" id="like-count" data-like="${post.uuid}">
                                 <img src="images/icon-comment.png" alt="icon of comment">
                                 <img src="images/icon-dm.png" alt="icon of dm">
                             </div>
                             <div class="like-count">
-                                <p>${count} likes</p>
+                                <p>${post.likes} likes</p>
                             </div>
                             <div class="user-caption">
-                                <p>${posts[i].username} <span>${posts[i].comment}</span></p>
+                                <p>${post.username} <span>${post.comment}</span></p>
                             </div>
                         </div>
 
             </section> 
             `
             
-        }
-mainContentEl.innerHTML = mainContent;
+        })
+        return mainContent;
+    }
 
-             document.addEventListener('scroll', () =>{
-                const headerEl = document.querySelector('header');
+    // Call the function to render HTML on the webpage
+    function renderHtml(){
+        mainContentEl.innerHTML = getHtml();
+    }
+
+    renderHtml();
+
+    // Add event listener for scrolling the page and adding header class when scrolling
+  document.addEventListener('scroll', () =>{
+         const headerEl = document.querySelector('header');
                 if(window.scrollY > 0){
                     headerEl.classList.add('scrolled');
                 }else{
                     headerEl.classList.remove('scrolled');
-                }
-             })
-                
-                
+            }
+     })
+        
+     // Add event listener for clicking the like button to increment the like count and update the HTML
+document.addEventListener('click',function(e){
+    if(e.target.dataset.like){
+        const likeCountObj = posts.filter(function(post){
+            return post.uuid === e.target.dataset.like;
+        })[0]
 
+        if(likeCountObj.isLiked) {
+        likeCountObj.likes--;
+        }
+        else {
+        likeCountObj.likes++;
+        }
+        likeCountObj.isLiked =!likeCountObj.isLiked;
+        renderHtml()
+    }
+
+})
 
 
 
